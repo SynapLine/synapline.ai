@@ -35,7 +35,7 @@
         }
 
         .container {
-            //max-width: 1440px;
+            max-width: 1200px;
             margin: auto;
         }
 
@@ -170,6 +170,10 @@
                 padding: 25% 0;
                 margin-bottom: 10px;
             }
+
+            .video-container {
+                margin: 40px !important;
+            }
         }
     </style>
 </head>
@@ -202,9 +206,10 @@
             </section>
         </section>
         <section class='container text light'>
-            <p style='font-size: 20px; line-height: 30px; text-align: center; padding: 20px 40px;'>We are Building AI
-                powered hardware and
-                software solutions for autonomous unmanned operations</p>
+            <p style='font-size: 18px; line-height: 30px; text-align: center; padding: 20px 40px;'>We are Building <span
+                    style='color: #FFBD2C;'>AI
+                    powered hardware and
+                    software solutions</span> for autonomous unmanned operations</p>
         </section>
         <section style='flex: 1'>
             <section class='footer' style='display: flex; height: 100%;'>
@@ -239,8 +244,8 @@
             </section>
         </section>
         <section class='overlay' id='player'>
-            <section
-                style='position: relative; max-width: 800px; margin: auto; top: 50%; transform: translateY(-50%); background: #000; margin: 40px;'>
+            <section class='video-container'
+                style='position: relative; max-width: 800px; margin: auto; top: 50%; transform: translateY(-50%); background: #000;'>
                 <a href='#' alt='' class='close'
                     onclick="document.getElementById('player').classList.remove('show'); stopVideo(document)">
                     <img src='./assets/close.svg' alt='' />
