@@ -11,6 +11,10 @@
         rel="stylesheet">
     <title>synapline.ai</title>
     <style>
+        body {
+            background: #1c1c1c;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -134,6 +138,38 @@
             display: block;
             width: 100%;
         }
+
+        .logo {
+            height: 64px;
+            margin: 40px;
+        }
+
+        @media screen and (max-width: 800px) {
+            .wrapper {
+                min-height: 100vh;
+            }
+
+            .social img {
+                height: 32px;
+            }
+
+            .logo {
+                height: 32px;
+            }
+
+            h1 {
+                font-size: 24px !important;
+            }
+
+            .footer {
+                flex-direction: column-reverse;
+            }
+
+            .footer>section:last-child {
+                padding: 25% 0;
+                margin-bottom: 10px;
+            }
+        }
     </style>
 </head>
 
@@ -142,8 +178,9 @@
         <section class='cover cover-1' style='flex: 1.5; background-color: #1c1c1c;'>
             <section class='container' style='height: 100%; display: flex; flex-direction: column; width: 100%;'>
                 <section class='flex' style='justify-content: space-between; align-items: center;'>
-                    <img src='./assets/logo.svg' style='height: 64px; margin-top: 40px;' />
-                    <section class='flex' style='justify-content: center; align-items: flex-end;'>
+                    <img src='./assets/logo.svg' class='logo' />
+                    <section class='flex social'
+                        style='justify-content: center; align-items: flex-end; margin-right: 40px;'>
                         <a href='https://www.linkedin.com/company/synapline' target='_blank'
                             style='margin-right: 16px; display: block;'>
                             <img src='./assets/in.svg' alt='' />
@@ -169,7 +206,7 @@
                 software solutions for <br /> autonomous unmanned operations</p>
         </section>
         <section style='flex: 1'>
-            <section class='container' style='display: flex; height: 100%;'>
+            <section class='container footer' style='display: flex; height: 100%;'>
                 <section style='padding: 40px; flex: 1; justify-content:flex-end; flex-direction:column;'
                     class='flex cover cover-2'>
                     <p style='font-size: 20px; color: #FFBD2C; font-weight: 700;'>Our complete website is coming soon.
