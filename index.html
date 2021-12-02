@@ -5,11 +5,240 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <title>synapline.ai</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+            font-family: 'Exo', sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            line-height: 130%;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 100vw;
+            height: 100vh;
+            background-color: #1c1c1c;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .text {
+            text-transform: uppercase;
+        }
+
+        .text.light {
+            color: #fff;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .center {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .full {
+            flex: 1;
+        }
+
+        .cover {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cover::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            opacity: .7;
+        }
+
+        .cover-2::after,
+        .cover-3::after {
+            opacity: .5;
+        }
+
+        .cover-1::after {
+            background-image: url(./assets/cover-1.jpg);
+        }
+
+        .cover-2::after {
+            background-image: url(./assets/cover-2.jpg);
+        }
+
+        .cover-3::after {
+            background-image: url(./assets/cover-3.jpg);
+        }
+
+        a,
+        img,
+        .overlay {
+            transition: all ease .3s;
+        }
+
+        a:hover,
+        .player:hover img {
+            transform: scale(1.1);
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: rgba(0, 0, 0, .8);
+            transition: all ease .3s;
+            opacity: 0;
+            display: none;
+        }
+
+        .overlay.show {
+            display: block;
+            opacity: 1;
+        }
+
+        .close {
+            position: absolute;
+            z-index: 99999;
+            top: -28px;
+            right: -28px;
+            width: 56px;
+        }
+
+        .close img {
+            display: block;
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
-    synapline.ai
+    <section class='wrapper'>
+        <section class='cover cover-1' style='flex: 1.5; background-color: #1c1c1c;'>
+            <section class='container' style='height: 100%; display: flex; flex-direction: column; width: 100%;'>
+                <section class='flex' style='justify-content: space-between; align-items: center;'>
+                    <img src='./assets/logo.svg' style='height: 64px; margin-top: 40px;' />
+                    <section class='flex' style='justify-content: center; align-items: flex-end;'>
+                        <a href='https://www.linkedin.com/company/synapline' target='_blank'
+                            style='margin-right: 16px; display: block;'>
+                            <img src='./assets/in.svg' alt='' />
+                        </a>
+                        <a href='https://www.youtube.com/channel/UCTbTJsCoeW68ejIdGQL0xtg' target='_blank'
+                            style='display: block;'>
+                            <img src='./assets/yt.svg' alt='' />
+                        </a>
+                    </section>
+                </section>
+                <section class='flex' style='flex: 1; justify-content: center; align-items: center;'>
+                    <h1 style='color: #fff; font-size: 35px; text-align: center; padding: 40px;'>
+                        Combining human and artifical intelligence to help organizations <br />
+                        <span style='border-bottom: 2px dashed #FFBD2C;'>drive better decisions with more
+                            certainty</span>
+                    </h1>
+                </section>
+            </section>
+        </section>
+        <section class='container text light'>
+            <p style='font-size: 20px; line-height: 30px; text-align: center; padding: 20px 40px;'>We are Building AI
+                powered hardware and
+                software solutions for <br /> autonomous unmanned operations</p>
+        </section>
+        <section style='flex: 1'>
+            <section class='container' style='display: flex; height: 100%;'>
+                <section style='padding: 40px; flex: 1; justify-content:flex-end; flex-direction:column;'
+                    class='flex cover cover-2'>
+                    <p style='font-size: 20px; color: #FFBD2C; font-weight: 700;'>Our complete website is coming soon.
+                        <br />Stay Tuned
+                    </p>
+                    <section class='flex' style='margin-top: 40px;'>
+                        <a href='mailto:contact@synapline.ai' class='flex center'
+                            style='text-decoration:none; color: #fff; margin-right: 20px;'>
+                            <img src='./assets/envelope.svg' alt='' style='margin-right: 6px;' />
+                            <span>contact@synapline.ai</span>
+                        </a>
+
+                        <!-- <a href='#' class='flex center' style='text-decoration:none; color: #fff; margin-right: 20px;'>
+                            <img src='./assets/address.svg' alt='' style='margin-right: 6px;' />
+                            <span>contact@synapline.ai</span>
+                        </a> -->
+
+                        <!-- <a href='#' class='flex center' style='text-decoration:none; color: #fff; margin-right: 20px;'>
+                            <img src='./assets/phone.svg' alt='' style='margin-right: 6px;' />
+                            <span>contact@synapline.ai</span>
+                        </a> -->
+
+                    </section>
+                </section>
+                <section style='flex: 1; cursor: pointer;' class='flex center cover cover-3 player'
+                    onclick="document.getElementById('player').classList.add('show')">
+                    <img src='./assets/play.svg' alt='' />
+                </section>
+            </section>
+        </section>
+        <section class='overlay' id='player'>
+            <section
+                style='position: relative; max-width: 800px; margin: auto; top: 50%; transform: translateY(-50%); background: #000;'>
+                <a href='#' alt='' class='close'
+                    onclick="document.getElementById('player').classList.remove('show'); stopVideo(document)">
+                    <img src='./assets/close.svg' alt='' />
+                </a>
+                <section style='width: 100%; padding-bottom: 56.25%;'>
+                    <iframe src="https://www.youtube.com/embed/y6fUKYsT-cs"
+                        title="Synap ISR: AI-powered Integrated Unmanned Solution for Autonomous ISR missions by Synapline"
+                        frameborder="10"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen style='position: absolute; top: 0; left: 0; width: 100%; height: 100%;'
+                        class='video'></iframe>
+                </section>
+            </section>
+        </section>
+    </section>
+    <script type="text/javascript">
+        document.addEventListener('keydown', logKey);
+        const stopVideo = function (element) {
+            var iframe = element.querySelector('iframe');
+            var video = element.querySelector('video');
+            if (iframe) {
+                var iframeSrc = iframe.src;
+                iframe.src = iframeSrc;
+            }
+            if (video) {
+                video.pause();
+            }
+        };
+
+        function logKey(e) {
+            if (e.code === 'Escape') {
+                document.getElementById('player').classList.remove('show')
+                stopVideo(document)
+            }
+        }
+    </script>
 </body>
 
 </html>
