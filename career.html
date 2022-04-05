@@ -177,6 +177,19 @@
       right: 100px;
     }
 
+    .desktop-only-block {
+      display: block;
+    }
+
+    .desktop-only-flex {
+      display: flex;
+    }
+
+    .mobile-only-block,
+    .mobile-only-flex {
+      display: none !important;
+    }
+
     @media screen and (max-width: 800px) {
       .wrapper {
         min-height: 100vh;
@@ -215,6 +228,47 @@
       .contacts>* {
         margin-bottom: 10px;
       }
+
+      .desktop-only,
+      .desktop-only-flex,
+      .desktop-only-block {
+        display: none !important;
+      }
+
+      .mobile-only-flex {
+        display: flex !important;
+      }
+
+      .mobile-only-block {
+        display: block !important;
+      }
+
+      .responsive-col {
+        flex-direction: column !important;
+      }
+
+      .video-section,
+      .video-section>* {
+        height: auto !important;
+      }
+
+      video {
+        position: relative !important;
+      }
+
+      a,
+      h3,
+      p {
+        max-width: 100% !important;
+      }
+
+      .section,
+      .fp-tableCell,
+      .fp-slides {
+        overflow: visible !important;
+        height: auto !important;
+      }
+
     }
   </style>
 </head>
@@ -231,7 +285,7 @@
           </a>
           <section class='flex social' style='justify-content: center; align-items: center; margin-right: 40px;'>
 
-            <a href=""
+            <a class="desktop-only" href=""
               style="color: white; margin-right: 40px; position: relative; display: block; border: 1px solid #fff; padding: 10px; text-decoration: none; border-radius: 10px;">We
               Are
               Hiring
@@ -261,82 +315,172 @@
     </section>
 
     <div id="fullpage">
-      <div class="section" style="background-color: black;">
+
+      <div class="section video-section" style="background-color: black;">
         <div style="display: block; position: relative; width: 100%; height: 100%;">
-          <video autoplay muted loop style="object-fit: contain; width: 100%; height: 100%; position: absolute;">
+          <video id="video" autoplay muted loop
+            style="object-fit: contain; width: 100%; height: 100%; position: absolute;">
             <source src="./assets/team.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
       </div>
+
       <div class="section" style="background-color: black;">
-        <div
-          style="max-width: 1000px; margin: 0 auto; display: flex; position: relative; width: 100%; height: 100%; justify-content: center; align-items: center;">
-          <div style="padding: 40px;">
+        <div class="responsive-col"
+          style="max-width: 1000px; margin: 0 auto; display: flex; position: relative; width: 100%; height: auto; justify-content: center; align-items: flex-start;">
+          <div style="flex: 1; padding: 40px; font-size: 20px;">
             <p>At synapline, we enhance the way humans and machines team up to help organizations drive better decisions
               with more certainty in complex and dynamic environments</p>
             <br />
             <p>If you are passionate about building products that have a real impact, we want you at synapline.</p>
           </div>
-          <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-            <div style="width: 300px; height: 300px; background: #ccc;"></div>
-            <a href=""
+          <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div style="max-width: 400px; height: auto; background: #ccc;">
+              <img src="./assets/cover-5.jpg" style="display: block; width: 100%;" />
+            </div>
+            <a href="#positions"
               style="color: black; background: #FFBD2C; padding: 20px; text-transform:uppercase; margin-top: 20px; font-weight: bold; text-decoration: none;">View
               Openings</a>
           </div>
         </div>
       </div>
+
       <div class="section" style="background-color: black;">
 
         <div class="cover cover-4" style="height: 100%; width: 100%;">
           <div
-            style="max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column;  position: relative; width: 100%; height: 100%; justify-content: center; align-items: center;">
-            <h3 style="color: #FFBD2C; margin-bottom: 20px;">Who we are</h3>
-            <p>We are a young and diverse team of energizing problem solvers, thinkers and experts in product
+            style="max-width: 1000px; margin: 0 auto; padding: 20px; display: flex; flex-direction: column;  position: relative; width: 100%; height: 100%; justify-content: center; align-items: flex-start;">
+            <h3 style="color: #FFBD2C; margin-bottom: 20px; font-size: 36px;">Who we are</h3>
+            <p style="max-width: 50%; text-align:justify; font-size: 20px;">We are a young and diverse team of
+              energizing problem
+              solvers, thinkers and
+              experts in product
               development, Defense, AI, Software and Hardware engineering, dedicated to achieving our mission.
               Meet our amazing Synapliners team</p>
           </div>
         </div>
 
       </div>
+
       <div class="section" style="background-color: black;">
         <div class="slide">
-          <div
+          <div class="responsive-col"
             style="max-width: 1000px; margin: 0 auto; display: flex; flex-direction: row;  position: relative; width: 100%; height: 100%; justify-content: center; align-items: center;">
 
-            <div style="width: 260px; height: 300px; background-color: #ccc; margin: 20px;"></div>
-            <div style="width: 260px; height: 300px; background-color: #ccc; margin: 20px;"></div>
-            <div style="width: 260px; height: 300px; background-color: #ccc; margin: 20px;"></div>
+            <div style="width: 260px; height: auto; background-color: transparent; margin: 20px;">
+              <div style="width: 260px; height: 260px; background: white; overflow:hidden;">
+                <img src="./assets/team/bekir.jpg" style="width: 100%; height: 100%; object-fit:cover;" />
+              </div>
+              <div style="font-size: 22px; margin-top: 10px; text-transform:uppercase;">Bekir Guliyev</div>
+              <div style="font-size: 14px; text-transform:uppercase; font-weight:300; min-height: 50px;">Founder AND CEO
+              </div>
+            </div>
+
+            <div style="width: 260px; height: auto; background-color: transparent; margin: 20px;">
+              <div style="width: 260px; height: 260px; background: white; overflow:hidden;">
+                <img src="./assets/team/malik.jpg" style="width: 100%; height: 100%; object-fit:cover;" />
+              </div>
+              <div style="font-size: 22px; margin-top: 10px; text-transform:uppercase;">Malik Aliyev</div>
+              <div style="font-size: 14px; text-transform:uppercase; font-weight:300; min-height: 50px;">Head of
+                Software engineering
+              </div>
+            </div>
+
+            <div style="width: 260px; height: auto; background-color: transparent; margin: 20px;">
+              <div style="width: 260px; height: 260px; background: white; overflow:hidden;">
+                <img src="./assets/team/ali.jpg" style="width: 100%; height: 100%; object-fit:cover;" />
+              </div>
+              <div style="font-size: 22px; margin-top: 10px; text-transform:uppercase;">ALI Shikhaliyev</div>
+              <div style="font-size: 14px; text-transform:uppercase; font-weight:300; min-height: 50px;">Head of
+                autonomous systems and
+                avionics</div>
+            </div>
 
           </div>
         </div>
         <div class="slide">
-          <div
+          <div class="responsive-col"
             style="max-width: 1000px; margin: 0 auto; display: flex; flex-direction: row;  position: relative; width: 100%; height: 100%; justify-content: center; align-items: center;">
 
-            <div style="width: 260px; height: 300px; background-color: #ccc; margin: 20px;"></div>
-            <div style="width: 260px; height: 300px; background-color: #ccc; margin: 20px;"></div>
-            <div style="width: 260px; height: 300px; background-color: #ccc; margin: 20px;"></div>
+            <div style="width: 260px; height: auto; background-color: transparent; margin: 20px;">
+              <div style="width: 260px; height: 260px; background: white; overflow:hidden;">
+                <img src="./assets/team/rashad.jpg" style="width: 100%; height: 100%; object-fit:cover;" />
+              </div>
+              <div style="font-size: 22px; margin-top: 10px; text-transform:uppercase;">Rashad Azizov</div>
+              <div style="font-size: 14px; text-transform:uppercase; font-weight:300; min-height: 50px;">AI Software
+                engineer
+              </div>
+            </div>
+
+            <div style="width: 260px; height: auto; background-color: transparent; margin: 20px;">
+              <div style="width: 260px; height: 260px; background: white; overflow:hidden;">
+                <img src="./assets/team/zahra.jpg" style="width: 100%; height: 100%; object-fit:cover;" />
+              </div>
+              <div style="font-size: 22px; margin-top: 10px; text-transform:uppercase;">Zahra Imanova</div>
+              <div style="font-size: 14px; text-transform:uppercase; font-weight:300; min-height: 50px;">Hardware
+                integration and test engineer
+              </div>
+            </div>
+
+            <div style="width: 260px; height: auto; background-color: transparent; margin: 20px;">
+              <div style="width: 260px; height: 260px; background: white; overflow:hidden;">
+                <img src="./assets/team/asif.jpg" style="width: 100%; height: 100%; object-fit:cover;" />
+              </div>
+              <div style="font-size: 22px; margin-top: 10px; text-transform:uppercase;">Asif Ganbayev</div>
+              <div style="font-size: 14px; text-transform:uppercase; font-weight:300; min-height: 50px;">Embedded
+                systems engineer</div>
+            </div>
 
           </div>
         </div>
       </div>
 
-      <div class="section" style="background-color: red;"></div>
+      <div class="section" style="background-color: black;" data-anchor="positions">
+        <div class="responsive-col"
+          style="max-width: 1000px; margin: 0 auto; display: flex; flex-direction: row;  position: relative; width: 100%; height: auto; justify-content: center; align-items: flex-start;">
+
+          <div style="padding: 20px; flex: 1;">
+            <h3 style="color: #fff; margin-bottom: 20px;">Open positions</h3>
+            <p style="text-transform:uppercase; font-size: 36px;">find a job that is alligned with your superpowers and
+              values</p>
+          </div>
+          <div style="padding: 20px; flex: 1;">
+            <h3 style="color: #fff; margin-bottom: 20px;">Sofware engineering and AI</h3>
+            <a href="./ai-se-job.html"
+              style="color: #fff; text-transform:uppercase; font-size: 22px; transform: scale(1) !important; text-decoration: underline;">AI
+              Software engineer:
+              Computer Vision (FUll time)</a>
+          </div>
+        </div>
+
+        <div class="responsive-col"
+          style="max-width: 1000px; margin: 0 auto; display: flex; flex-direction: row;  position: relative; width: 100%; height: auto; justify-content: flex-start; align-items: flex-start;">
+
+          <div style="padding: 20px; flex: 1; border-top: 1px solid #fff;">
+            <h3 style="color: #fff; margin-bottom: 20px; font-size: 30px;">We are always looking for a new talent</h3>
+            <p style="text-transform:uppercase; font-size: 16px;">if you were not able to find the right position here,
+              please send your spontaneour applicatio to <a href="mailto:contact@synapline.ai"
+                style="color:#FFBD2C; transform: scale(1) !important;">contact@synapline.ai</a></p>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </section>
+  <input type="hidden" id="_4" value="3" />
 
-    <input type="hidden" id="_4" value="3" />
+  <script src="./fullpage/vendors/easings.min.js"></script>
+  <!-- <script src="https://secure.quantserve.com/quant.js" async="" type="text/javascript"></script> -->
+  <script type="text/javascript" src="./fullpage/fullpage.continuousHorizontal.limited.min.js"></script>
+  <script type="text/javascript" src="./fullpage/fullpage.responsiveSlides.limited.min.js"></script>
+  <!-- <script type="text/javascript" src="./fullpage/fullpage.scrollHorizontally.limited2.min.js"></script> -->
+  <script type="text/javascript" src="./fullpage/vendors/scrolloverflow.min.js"></script>
+  <!-- <script type="text/javascript" src="./fullpage/fullpage.js"></script> -->
+  <!-- <script type="text/javascript" src="./fullpage/_fullpage.extensions.min.js"></script> -->
+  <script type="text/javascript" src="./fullpage/fullpage.extensions.min.js"></script>
 
-    <script src="./fullpage/vendors/easings.min.js"></script>
-    <!-- <script src="https://secure.quantserve.com/quant.js" async="" type="text/javascript"></script> -->
-    <script type="text/javascript" src="./fullpage/fullpage.continuousHorizontal.limited.min.js"></script>
-    <!-- <script type="text/javascript" src="./fullpage/fullpage.scrollHorizontally.limited2.min.js"></script> -->
-    <script type="text/javascript" src="./fullpage/vendors/scrolloverflow.min.js"></script>
-    <!-- <script type="text/javascript" src="./fullpage/fullpage.js"></script> -->
-    <!-- <script type="text/javascript" src="./fullpage/_fullpage.extensions.min.js"></script> -->
-    <script type="text/javascript" src="./fullpage/fullpage.extensions.min.js"></script>
-
-    <script type="text/javascript" src="./base.js"></script>
+  <script type="text/javascript" src="./base.js"></script>
 </body>
 
 </html>

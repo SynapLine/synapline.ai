@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>synapline.ai</title>
+  <style>
+    body {
+      background: #1c1c1c;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+
+      font-family: 'Exo', sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 130%;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      width: 100vw;
+      height: 100vh;
+      background-color: #1c1c1c;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .text {
+      text-transform: uppercase;
+    }
+
+    .text.light {
+      color: #fff;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .center {
+      justify-content: center;
+      align-items: center;
+    }
+
+    .full {
+      flex: 1;
+    }
+
+    .cover {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cover::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+      opacity: .7;
+    }
+
+    .cover-2::after,
+    .cover-3::after {
+      opacity: .5;
+    }
+
+    .cover-1::after {
+      background-image: url(./assets/cover-1.jpg);
+    }
+
+    .cover-2::after {
+      background-image: url(./assets/cover-2.jpg);
+      background-position: 0 20%;
+    }
+
+    .cover-3::after {
+      background-image: url(./assets/cover-3.jpg);
+    }
+
+    .cover-4::after {
+      background-image: url(./assets/cover-4.png);
+    }
+
+    a,
+    img,
+    .overlay {
+      transition: all ease .3s;
+    }
+
+    a:hover,
+    .player:hover img {
+      transform: scale(1.1);
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      background: rgba(0, 0, 0, .8);
+      transition: all ease .3s;
+      opacity: 0;
+      display: none;
+    }
+
+    .overlay.show {
+      display: block;
+      opacity: 1;
+    }
+
+    .close {
+      position: absolute;
+      z-index: 99999;
+      top: -28px;
+      right: -28px;
+      width: 56px;
+    }
+
+    .close img {
+      display: block;
+      width: 100%;
+    }
+
+    .logo {
+      height: 64px;
+      margin: 40px;
+    }
+
+    .section {
+      color: #fff;
+    }
+
+    .slide {
+      color: #fff;
+    }
+
+    .fp-controlArrow.fp-prev {
+      left: 100px;
+    }
+
+    .fp-controlArrow.fp-next {
+      right: 100px;
+    }
+
+    .desktop-only-block {
+      display: block;
+    }
+
+    .desktop-only-flex {
+      display: flex;
+    }
+
+    .mobile-only-block,
+    .mobile-only-flex {
+      display: none !important;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-bottom: 20px;
+      line-height: 130%;
+    }
+
+    h1 {
+      font-size: 28px;
+    }
+
+    h3 {
+      color: #FFBD2C;
+    }
+
+    ul {
+      padding-left: 40px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    ul ul {
+      margin-top: 10px;
+    }
+
+    @media screen and (max-width: 800px) {
+      .wrapper {
+        min-height: 100vh;
+      }
+
+      .social img {
+        height: 32px;
+      }
+
+      .logo {
+        height: 32px;
+      }
+
+      h1 {
+        font-size: 24px !important;
+      }
+
+      .footer {
+        flex-direction: column-reverse;
+      }
+
+      .footer>section:last-child {
+        padding: 25% 0;
+        margin-bottom: 10px;
+      }
+
+      .video-container {
+        margin: 40px !important;
+      }
+
+      .contacts {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .contacts>* {
+        margin-bottom: 10px;
+      }
+
+      .desktop-only,
+      .desktop-only-flex,
+      .desktop-only-block {
+        display: none !important;
+      }
+
+      .mobile-only-flex {
+        display: flex !important;
+      }
+
+      .mobile-only-block {
+        display: block !important;
+      }
+
+      .responsive-col {
+        flex-direction: column !important;
+      }
+
+      .video-section,
+      .video-section>* {
+        height: auto !important;
+      }
+
+      video {
+        position: relative !important;
+      }
+
+      a,
+      h3,
+      p {
+        max-width: 100% !important;
+      }
+
+      .section,
+      .fp-tableCell,
+      .fp-slides {
+        overflow: visible !important;
+        height: auto !important;
+      }
+
+    }
+  </style>
+
+  <style>
+    a,
+    a.visited {
+      color: inherit;
+      text-decoration: underline;
+    }
+
+    .pdf-relative-link-path {
+      font-size: 80%;
+      color: #444;
+    }
+
+    h1,
+    h2,
+    h3 {
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      font-weight: 600;
+      margin-bottom: 0;
+    }
+
+    .page-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-top: 0;
+      margin-bottom: 0.75em;
+    }
+
+    h1 {
+      font-size: 1.875rem;
+      margin-top: 1.875rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      margin-top: 1.25rem;
+    }
+
+    .source {
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      padding: 1.5em;
+      word-break: break-all;
+    }
+
+    .callout {
+      border-radius: 3px;
+      padding: 1rem;
+    }
+
+    figure {
+      margin: 1.25em 0;
+      page-break-inside: avoid;
+    }
+
+    figcaption {
+      opacity: 0.5;
+      font-size: 85%;
+      margin-top: 0.5em;
+    }
+
+    mark {
+      background-color: transparent;
+    }
+
+    .indented {
+      padding-left: 1.5em;
+    }
+
+    hr {
+      background: transparent;
+      display: block;
+      width: 100%;
+      height: 1px;
+      visibility: visible;
+      border: none;
+      border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    @media only print {
+      img {
+        max-height: 100vh;
+        object-fit: contain;
+      }
+    }
+
+    @page {
+      margin: 1in;
+    }
+
+    .collection-content {
+      font-size: 0.875rem;
+    }
+
+    .column-list {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .column {
+      padding: 0 1em;
+    }
+
+    .column:first-child {
+      padding-left: 0;
+    }
+
+    .column:last-child {
+      padding-right: 0;
+    }
+
+    .table_of_contents-item {
+      display: block;
+      font-size: 0.875rem;
+      line-height: 1.3;
+      padding: 0.125rem;
+    }
+
+    .table_of_contents-indent-1 {
+      margin-left: 1.5rem;
+    }
+
+    .table_of_contents-indent-2 {
+      margin-left: 3rem;
+    }
+
+    .table_of_contents-indent-3 {
+      margin-left: 4.5rem;
+    }
+
+    .table_of_contents-link {
+      text-decoration: none;
+      opacity: 0.7;
+      border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid rgba(55, 53, 47, 0.09);
+      border-collapse: collapse;
+    }
+
+    table {
+      border-left: none;
+      border-right: none;
+    }
+
+    th,
+    td {
+      font-weight: normal;
+      padding: 0.25em 0.5em;
+      line-height: 1.5;
+      min-height: 1.5em;
+      text-align: left;
+    }
+
+    th {
+      color: rgba(55, 53, 47, 0.6);
+    }
+
+    ol,
+    ul {
+      margin: 0;
+      margin-block-start: 0.6em;
+      margin-block-end: 0.6em;
+    }
+
+    li>ol:first-child,
+    li>ul:first-child {
+      margin-block-start: 0.6em;
+    }
+
+    ul>li {
+      list-style: disc;
+    }
+
+    ul.to-do-list {
+      text-indent: -1.7em;
+    }
+
+    ul.to-do-list>li {
+      list-style: none;
+    }
+
+    .to-do-children-checked {
+      text-decoration: line-through;
+      opacity: 0.375;
+    }
+
+    ul.toggle>li {
+      list-style: none;
+    }
+
+    ul {
+      padding-inline-start: 1.7em;
+    }
+
+    ul>li {
+      padding-left: 0.1em;
+    }
+
+    ol {
+      padding-inline-start: 1.6em;
+    }
+
+    ol>li {
+      padding-left: 0.2em;
+    }
+
+    .mono ol {
+      padding-inline-start: 2em;
+    }
+
+    .mono ol>li {
+      text-indent: -0.4em;
+    }
+
+    .toggle {
+      padding-inline-start: 0em;
+      list-style-type: none;
+    }
+
+    /* Indent toggle children */
+    .toggle>li>details {
+      padding-left: 1.7em;
+    }
+
+    .toggle>li>details>summary {
+      margin-left: -1.1em;
+    }
+
+    .selected-value {
+      display: inline-block;
+      padding: 0 0.5em;
+      background: rgba(206, 205, 202, 0.5);
+      border-radius: 3px;
+      margin-right: 0.5em;
+      margin-top: 0.3em;
+      margin-bottom: 0.3em;
+      white-space: nowrap;
+    }
+
+    .collection-title {
+      display: inline-block;
+      margin-right: 1em;
+    }
+
+    .simple-table {
+      margin-top: 1em;
+      font-size: 0.875rem;
+      empty-cells: show;
+    }
+
+    .simple-table td {
+      height: 29px;
+      min-width: 120px;
+    }
+
+    .simple-table th {
+      height: 29px;
+      min-width: 120px;
+    }
+
+    .simple-table-header-color {
+      background: rgb(247, 246, 243);
+      color: black;
+    }
+
+    .simple-table-header {
+      font-weight: 500;
+    }
+
+    time {
+      opacity: 0.5;
+    }
+
+    .icon {
+      display: inline-block;
+      max-width: 1.2em;
+      max-height: 1.2em;
+      text-decoration: none;
+      vertical-align: text-bottom;
+      margin-right: 0.5em;
+    }
+
+    img.icon {
+      border-radius: 3px;
+    }
+
+    .user-icon {
+      width: 1.5em;
+      height: 1.5em;
+      border-radius: 100%;
+      margin-right: 0.5rem;
+    }
+
+    .user-icon-inner {
+      font-size: 0.8em;
+    }
+
+    .text-icon {
+      border: 1px solid #000;
+      text-align: center;
+    }
+
+    .page-cover-image {
+      display: block;
+      object-fit: cover;
+      width: 100%;
+      max-height: 30vh;
+    }
+
+    .page-header-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .page-header-icon-with-cover {
+      margin-top: -0.72em;
+      margin-left: 0.07em;
+    }
+
+    .page-header-icon img {
+      border-radius: 3px;
+    }
+
+    .link-to-page {
+      margin: 1em 0;
+      padding: 0;
+      border: none;
+      font-weight: 500;
+    }
+
+    p>.user {
+      opacity: 0.5;
+    }
+
+    td>.user,
+    td>time {
+      white-space: nowrap;
+    }
+
+    input[type="checkbox"] {
+      transform: scale(1.5);
+      margin-right: 0.6em;
+      vertical-align: middle;
+    }
+
+    p {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+
+    .image {
+      border: none;
+      margin: 1.5em 0;
+      padding: 0;
+      border-radius: 0;
+      text-align: center;
+    }
+
+    .code,
+    code {
+      background: rgba(135, 131, 120, 0.15);
+      border-radius: 3px;
+      padding: 0.2em 0.4em;
+      border-radius: 3px;
+      font-size: 85%;
+      tab-size: 2;
+    }
+
+    code {
+      color: #eb5757;
+    }
+
+    .code {
+      padding: 1.5em 1em;
+    }
+
+    .code-wrap {
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    .code>code {
+      background: none;
+      padding: 0;
+      font-size: 100%;
+      color: inherit;
+    }
+
+    blockquote {
+      font-size: 1.25em;
+      margin: 1em 0;
+      padding-left: 1em;
+      border-left: 3px solid rgb(55, 53, 47);
+    }
+
+    .bookmark {
+      text-decoration: none;
+      max-height: 8em;
+      padding: 0;
+      display: flex;
+      width: 100%;
+      align-items: stretch;
+    }
+
+    .bookmark-title {
+      font-size: 0.85em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      height: 1.75em;
+      white-space: nowrap;
+    }
+
+    .bookmark-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .bookmark-info {
+      flex: 4 1 180px;
+      padding: 12px 14px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .bookmark-image {
+      width: 33%;
+      flex: 1 1 180px;
+      display: block;
+      position: relative;
+      object-fit: cover;
+      border-radius: 1px;
+    }
+
+    .bookmark-description {
+      color: rgba(55, 53, 47, 0.6);
+      font-size: 0.75em;
+      overflow: hidden;
+      max-height: 4.5em;
+      word-break: break-word;
+    }
+
+    .bookmark-href {
+      font-size: 0.75em;
+      margin-top: 0.25em;
+    }
+
+    .sans {
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+    }
+
+    .code {
+      font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace;
+    }
+
+    .serif {
+      font-family: Lyon-Text, Georgia, ui-serif, serif;
+    }
+
+    .mono {
+      font-family: iawriter-mono, Nitti, Menlo, Courier, monospace;
+    }
+
+    .pdf .sans {
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP';
+    }
+
+    .pdf:lang(zh-CN) .sans {
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC';
+    }
+
+    .pdf:lang(zh-TW) .sans {
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC';
+    }
+
+    .pdf:lang(ko-KR) .sans {
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR';
+    }
+
+    .pdf .code {
+      font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP';
+    }
+
+    .pdf:lang(zh-CN) .code {
+      font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC';
+    }
+
+    .pdf:lang(zh-TW) .code {
+      font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC';
+    }
+
+    .pdf:lang(ko-KR) .code {
+      font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR';
+    }
+
+    .pdf .serif {
+      font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP';
+    }
+
+    .pdf:lang(zh-CN) .serif {
+      font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC';
+    }
+
+    .pdf:lang(zh-TW) .serif {
+      font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC';
+    }
+
+    .pdf:lang(ko-KR) .serif {
+      font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR';
+    }
+
+    .pdf .mono {
+      font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP';
+    }
+
+    .pdf:lang(zh-CN) .mono {
+      font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC';
+    }
+
+    .pdf:lang(zh-TW) .mono {
+      font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC';
+    }
+
+    .pdf:lang(ko-KR) .mono {
+      font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR';
+    }
+
+    .highlight-default {
+      color: rgba(55, 53, 47, 1);
+    }
+
+    .highlight-gray {
+      color: rgba(120, 119, 116, 1);
+      fill: rgba(120, 119, 116, 1);
+    }
+
+    .highlight-brown {
+      color: rgba(159, 107, 83, 1);
+      fill: rgba(159, 107, 83, 1);
+    }
+
+    .highlight-orange {
+      color: rgba(217, 115, 13, 1);
+      fill: rgba(217, 115, 13, 1);
+    }
+
+    .highlight-yellow {
+      color: rgba(203, 145, 47, 1);
+      fill: rgba(203, 145, 47, 1);
+    }
+
+    .highlight-teal {
+      color: rgba(68, 131, 97, 1);
+      fill: rgba(68, 131, 97, 1);
+    }
+
+    .highlight-blue {
+      color: rgba(51, 126, 169, 1);
+      fill: rgba(51, 126, 169, 1);
+    }
+
+    .highlight-purple {
+      color: rgba(144, 101, 176, 1);
+      fill: rgba(144, 101, 176, 1);
+    }
+
+    .highlight-pink {
+      color: rgba(193, 76, 138, 1);
+      fill: rgba(193, 76, 138, 1);
+    }
+
+    .highlight-red {
+      color: rgba(212, 76, 71, 1);
+      fill: rgba(212, 76, 71, 1);
+    }
+
+    .highlight-gray_background {
+      background: rgba(241, 241, 239, 1);
+    }
+
+    .highlight-brown_background {
+      background: rgba(244, 238, 238, 1);
+    }
+
+    .highlight-orange_background {
+      background: rgba(251, 236, 221, 1);
+    }
+
+    .highlight-yellow_background {
+      background: rgba(251, 243, 219, 1);
+    }
+
+    .highlight-teal_background {
+      background: rgba(237, 243, 236, 1);
+    }
+
+    .highlight-blue_background {
+      background: rgba(231, 243, 248, 1);
+    }
+
+    .highlight-purple_background {
+      background: rgba(244, 240, 247, 0.8);
+    }
+
+    .highlight-pink_background {
+      background: rgba(249, 238, 243, 0.8);
+    }
+
+    .highlight-red_background {
+      background: rgba(253, 235, 236, 1);
+    }
+
+    .block-color-default {
+      color: inherit;
+      fill: inherit;
+    }
+
+    .block-color-gray {
+      color: rgba(120, 119, 116, 1);
+      fill: rgba(120, 119, 116, 1);
+    }
+
+    .block-color-brown {
+      color: rgba(159, 107, 83, 1);
+      fill: rgba(159, 107, 83, 1);
+    }
+
+    .block-color-orange {
+      color: rgba(217, 115, 13, 1);
+      fill: rgba(217, 115, 13, 1);
+    }
+
+    .block-color-yellow {
+      color: rgba(203, 145, 47, 1);
+      fill: rgba(203, 145, 47, 1);
+    }
+
+    .block-color-teal {
+      color: rgba(68, 131, 97, 1);
+      fill: rgba(68, 131, 97, 1);
+    }
+
+    .block-color-blue {
+      color: rgba(51, 126, 169, 1);
+      fill: rgba(51, 126, 169, 1);
+    }
+
+    .block-color-purple {
+      color: rgba(144, 101, 176, 1);
+      fill: rgba(144, 101, 176, 1);
+    }
+
+    .block-color-pink {
+      color: rgba(193, 76, 138, 1);
+      fill: rgba(193, 76, 138, 1);
+    }
+
+    .block-color-red {
+      color: rgba(212, 76, 71, 1);
+      fill: rgba(212, 76, 71, 1);
+    }
+
+    .block-color-gray_background {
+      background: rgba(241, 241, 239, 1);
+    }
+
+    .block-color-brown_background {
+      background: rgba(244, 238, 238, 1);
+    }
+
+    .block-color-orange_background {
+      background: rgba(251, 236, 221, 1);
+    }
+
+    .block-color-yellow_background {
+      background: rgba(251, 243, 219, 1);
+    }
+
+    .block-color-teal_background {
+      background: rgba(237, 243, 236, 1);
+    }
+
+    .block-color-blue_background {
+      background: rgba(231, 243, 248, 1);
+    }
+
+    .block-color-purple_background {
+      background: rgba(244, 240, 247, 0.8);
+    }
+
+    .block-color-pink_background {
+      background: rgba(249, 238, 243, 0.8);
+    }
+
+    .block-color-red_background {
+      background: rgba(253, 235, 236, 1);
+    }
+
+    .select-value-color-pink {
+      background-color: rgba(245, 224, 233, 1);
+    }
+
+    .select-value-color-purple {
+      background-color: rgba(232, 222, 238, 1);
+    }
+
+    .select-value-color-green {
+      background-color: rgba(219, 237, 219, 1);
+    }
+
+    .select-value-color-gray {
+      background-color: rgba(227, 226, 224, 1);
+    }
+
+    .select-value-color-opaquegray {
+      background-color: rgba(255, 255, 255, 0.0375);
+    }
+
+    .select-value-color-orange {
+      background-color: rgba(250, 222, 201, 1);
+    }
+
+    .select-value-color-brown {
+      background-color: rgba(238, 224, 218, 1);
+    }
+
+    .select-value-color-red {
+      background-color: rgba(255, 226, 221, 1);
+    }
+
+    .select-value-color-yellow {
+      background-color: rgba(253, 236, 200, 1);
+    }
+
+    .select-value-color-blue {
+      background-color: rgba(211, 229, 239, 1);
+    }
+
+    .checkbox {
+      display: inline-flex;
+      vertical-align: text-bottom;
+      width: 16;
+      height: 16;
+      background-size: 16px;
+      margin-left: 2px;
+      margin-right: 5px;
+    }
+
+    .checkbox-on {
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+    }
+
+    .checkbox-off {
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+    }
+  </style>
+</head>
+
+<body>
+  <section class='_wrapper'>
+
+    <section class='_cover _cover-1'
+      style='position: fixed; top: 0; left: 0; width: 100%; z-index: 999; background-color: rgba(0, 0, 0, .6);'>
+      <section class='' style='height: 100%; display: flex; flex-direction: column; width: 100%;'>
+        <section class='flex' style='justify-content: space-between; align-items: center;'>
+          <a href="./index.html" style="transition: none; transform: scale(1) !important;">
+            <img src='./assets/logo.svg' class='logo' style="height: 40px; margin-top: 20px; margin-bottom: 20px;" />
+          </a>
+          <section class='flex social' style='justify-content: center; align-items: center; margin-right: 40px;'>
+            <a class="desktop-only" href="./career.html"
+              style="color: white; margin-right: 40px; position: relative; display: block; border: 1px solid #fff; padding: 10px; text-decoration: none; border-radius: 10px;">We
+              Are
+              Hiring
+              <span
+                style="position: absolute; top: -10px; right: -10px; width: 20px; height: 20px; background: red; border-radius: 10px;"></span>
+            </a>
+
+            <a href='https://www.linkedin.com/company/synapline' target='_blank'
+              style='margin-right: 16px; display: block;'>
+              <img src='./assets/in.svg' alt='' />
+            </a>
+            <a href='https://www.youtube.com/channel/UCTbTJsCoeW68ejIdGQL0xtg' target='_blank' style='display: block;'>
+              <img src='./assets/yt.svg' alt='' />
+            </a>
+          </section>
+        </section>
+      </section>
+    </section>
+
+    <div style="color: #fff; padding: 20px; padding-top: 120px; max-width: 1000px; margin: auto;">
+      <article id="0a0bf6ee-48db-4919-9370-9c973ed4c8ad" class="page sans">
+        <div class="page-body">
+          <h1 id="0187e523-b8cc-47db-a24a-68a490685a99" class=""><strong>AI Software Engineer: Embedded Computer
+              Vision</strong></h1>
+          <p id="761cb2b2-c5e2-4bf0-902b-d22d427ae91a" class="">
+          </p>
+          <h3 id="69838e11-a55e-4faf-a36f-957da93e065d" class=""><strong>About Synapline:</strong></h3>
+          <p id="9b2644b9-3896-48f2-b4de-cf7ab20c8cce" class="">Synapline is a privately funded technology start-up
+            company, building AI-powered unmanned and autonomous systems to help professionals in Defense, Government,
+            and Commercial sectors to collaborate, operate and manage mission-critical unmanned operations with more
+            efficiency, safety, and security.</p>
+          <p id="3ed9e83e-630e-471a-8154-42fd02b6fd68" class="">We are a diverse team of problem solvers and experts in
+            artificial intelligence, computer vision, software, and hardware engineering, that are building hardware and
+            software products and solutions to dramatically enhance the capabilities of organizations to drive better
+            decisions with more certainty in complex and dynamic environments.</p>
+          <p id="d62ccc30-cdc9-43c5-b1b3-8d3ed2679e7b" class="">We believe that by augmenting human intelligence and
+            amplifying human capabilities with intelligent machines and responsible artificial intelligence
+            technologies, we will help to build a more resilient society and further accelerate human invention and
+            creativity.</p>
+          <p id="cb2c4d4f-fa24-494c-a09d-a7ebc81c1764" class="">If you are passionate about solving challenging
+            engineering problems that have a real world impact, come join Synapline and build the future of autonomous
+            and collaborative intelligence.</p>
+          <h3 id="e0baa97d-0698-49ac-ab95-b3e08fd623da" class=""><strong>About the role</strong></h3>
+          <p id="6f5ee39f-c610-4cc2-a09f-cd51847f22cd" class="">We are developing AI-powered software for autonomous
+            operation and situational awareness using advanced technologies at the intersection of artificial
+            intelligence, machine learning, sensor fusion, computer vision, embedded systems, and drones.</p>
+          <p id="64be6298-16eb-4a8b-b775-aab20fb8fc31" class="">To solve key challenges in autonomy and situational
+            awareness during unmanned operations in complex and dynamic environments, we apply neural networks and
+            classical computer vision models to the multi-spectral visual sensors data for autonomous aerial detection,
+            recognition,</p>
+          <p id="86db189d-7665-4633-87ae-082016bc4d19" class="">pose estimation, GPS denied navigation, and autonomous
+            planning.</p>
+          <p id="019cad47-cd6e-438c-ae09-8ad8deee04de" class="">As AI/ML engineer in our team, you will be playing a key
+            role in developing cutting-edge AI software capabilities mentioned above together with the Software,
+            Product, and Hardware team.</p>
+          <p id="8c516c02-21c8-462c-978d-8631553794b5" class="">You will be responsible for the full lifecycle of
+            Machine learning software development projects, from problem understanding, solution design, data
+            collection, model training, and validation, deployment and testing, field testing on an embedded device, as
+            well as documentation of results, demo, and work on continuous improvements of performance.</p>
+          <p id="8b040b65-8655-4bcf-b7e3-bbe3e5c2eea5" class="">Some days you write code to add a mission-critical
+            feature to an existing product. Some days you go to the field to coordinate real-world testing of your new
+            feature with other supporting team members. Some days everything works beautifully. Some days nothing works
+            and you have to figure out what’s broken.</p>
+          <p id="c6dc145d-d5d0-4c02-8b7a-b00474ac89ba" class="">As an applicant, you don’t need to be experienced in
+            robotics or perception or deploying predictive models on embedded devices, but you do need to be an engineer
+            - a pragmatic problem solver - with strong skills in software and machine learning engineering. As part of
+            the job, you will have opportunities to work with domain experts to develop your skills in areas such as
+            robotics, sensor fusion, computer vision, machine learning, and artificial intelligence.</p>
+          <h3 id="04edddb2-192c-4fd2-ab2a-b84bfcb51e7b" class=""><strong>What you will be doing on a day-to-day
+              basis?</strong></h3>
+          <p id="e258002d-38d5-4bbf-b80d-4b3c1f3c4947" class="">
+          </p>
+          <ul id="74c929bc-04bb-4662-a501-d9e1dfadf61a" class="bulleted-list">
+            <li style="list-style-type:disc">Work with Product, Software, and Hardware team to analyze the problem,
+              design the solution, scope our the key requirements, prioritize and develop new features for our software
+              products</li>
+          </ul>
+          <ul id="21325792-20d7-40fd-8605-20805bbfe71c" class="bulleted-list">
+            <li style="list-style-type:disc">Data collection, annotation, and pre-processing. We have our proprietary
+              dataset, and you will be helping us with collecting data from public sources, from the field, and
+              simulators.</li>
+          </ul>
+          <ul id="ef1b32ca-0e4f-4ea2-95ce-45490b249c81" class="bulleted-list">
+            <li style="list-style-type:disc">Researching, building, training, validating, debugging, and deploying
+              machine learning, deep learning, and computer vision models on embedded GPUs.</li>
+          </ul>
+          <ul id="4fc82d47-da07-47f8-9902-7d10fc857f77" class="bulleted-list">
+            <li style="list-style-type:disc">Develop analysis tools to allow for rapid iteration</li>
+          </ul>
+          <ul id="db3e5697-aabc-4309-a4c1-c541131e7637" class="bulleted-list">
+            <li style="list-style-type:disc">Going to the field to coordinate real-world testing of your new feature
+              with other supporting team members</li>
+          </ul>
+          <ul id="a5a4be25-2ee1-4e0b-97f3-106d0557b88b" class="bulleted-list">
+            <li style="list-style-type:disc">Analyze root cause failures, come up with optimal solutions, and coordinate
+              next-steps</li>
+          </ul>
+          <ul id="2bdb5ada-80fb-42a6-a407-316f234cc0c6" class="bulleted-list">
+            <li style="list-style-type:disc">Learn about the domain and competitors to propose new ideas and solutions,
+              as well as, improvements in existing solutions.</li>
+          </ul>
+          <h3 id="513e2896-6d96-4ec6-82ed-eb71e1b05a62" class="">To succeed in this role, you should bring the
+            following:</h3>
+          <p id="a417c065-15d5-4657-8a3f-41a4954e6142" class="">
+          </p>
+          <ul id="d9226d0a-9139-45ca-8524-1f9f62f0f18c" class="bulleted-list">
+            <li style="list-style-type:disc">MS or BS in Computer science, Data Science, Mathematics, Robotics,
+              Aerospace Engineering, or related field or equivalent practical experience.</li>
+          </ul>
+          <ul id="932a73e9-3710-4090-b589-ac47372e54f8" class="bulleted-list">
+            <li style="list-style-type:disc">Excellent English language skills - both written and verbal.</li>
+          </ul>
+          <ul id="5faf1bfa-1550-4703-89cf-6eca27663272" class="bulleted-list">
+            <li style="list-style-type:disc">Great passion for artificial intelligence, computer vision, robotics, and
+              unmanned systems (e.g., drones).</li>
+          </ul>
+          <ul id="acb9ce65-b592-46f9-95ee-a35063ef4c0f" class="bulleted-list">
+            <li style="list-style-type:disc">Knowledge and experience with:<ul id="7a1d72b3-1fae-4158-8de3-663d335c1e5c"
+                class="bulleted-list">
+                <li style="list-style-type:circle">Production-grade Python software development</li>
+              </ul>
+              <ul id="2ff3bd71-a168-4cf9-ae8a-f5a809de239f" class="bulleted-list">
+                <li style="list-style-type:circle">Working knowledge of C/C++ programming</li>
+              </ul>
+              <ul id="b5680b67-219e-4830-b8d5-05465aee0d50" class="bulleted-list">
+                <li style="list-style-type:circle">Full-stack Machine learning: Data collection and management,
+                  developing, benchmarking, debugging, and deploying classical machine learning and deep learning models
+                </li>
+              </ul>
+              <ul id="0afb1b8e-81a1-4d0a-86d1-9c27e0a16a5c" class="bulleted-list">
+                <li style="list-style-type:circle">Familiarity with machine learning libraries and frameworks such as
+                  Scikit-learn, Pandas, Numpy, PyTorch, and TensorFlow.</li>
+              </ul>
+              <ul id="ec8425ed-088e-41de-ba65-46cbe4932148" class="bulleted-list">
+                <li style="list-style-type:circle">Unix environments</li>
+              </ul>
+            </li>
+          </ul>
+          <ul id="783df9ac-b40c-4882-97cc-9e2a7b3cb38d" class="bulleted-list">
+            <li style="list-style-type:disc">Ability and interest in constantly generating new ideas about how to
+              further improve our products and services</li>
+          </ul>
+          <ul id="b58a1990-184b-4a69-b1ed-764b0916ec2e" class="bulleted-list">
+            <li style="list-style-type:disc">Demonstrated record of strong problem-solving skills, being a trustworthy
+              teammate, holding yourself and others to high standards, and being kind to others.</li>
+          </ul>
+          <ul id="e08f02d3-55a2-4e4a-b0c1-7205cafd35a1" class="bulleted-list">
+            <li style="list-style-type:disc">A pragmatic, creative, and flexible attitude, can-do mentality, and energy
+              to tackle any problem that might arise.</li>
+          </ul>
+          <ul id="fd4f9662-5ab9-4a62-876c-a417d7753ee2" class="bulleted-list">
+            <li style="list-style-type:disc">Ability to carry out all responsibilities with minimal supervision.</li>
+          </ul>
+          <ul id="0a4b56ae-67e4-4585-ae75-12f607a160f1" class="bulleted-list">
+            <li style="list-style-type:disc">Willingness to learn more, grow, and adapt quickly to the changing
+              environment</li>
+          </ul>
+          <h3 id="e737bb80-6aad-4e10-a6a7-80b5b3df0c03" class="">You will impress us if you have foundations in one or
+            more of the following areas and are interested in learning more:</h3>
+          <ul id="3009bd03-f5cb-489d-ae5b-f882b0a29d86" class="bulleted-list">
+            <li style="list-style-type:disc">Experience with building and deploying computer vision models for object
+              recognition, semantic segmentation, pose estimation, and object tracking</li>
+          </ul>
+          <ul id="ed5d882d-f686-4eff-9345-e737a91f8b0a" class="bulleted-list">
+            <li style="list-style-type:disc">Experience with deploying deep learning or computer vision models on
+              embedded devices (such as GPU, TPU, CPU)</li>
+          </ul>
+          <ul id="82609b37-1986-4c7c-a27a-5cddf053720a" class="bulleted-list">
+            <li style="list-style-type:disc">Proficiency in production-grade C/C++ software development</li>
+          </ul>
+          <ul id="f6c4d361-8366-4896-8e36-4ebd9c4a90d0" class="bulleted-list">
+            <li style="list-style-type:disc">Broad interest in a variety of computer technology topics</li>
+          </ul>
+          <ul id="c4a5a265-c933-47f6-b344-22c5ab1c7e67" class="bulleted-list">
+            <li style="list-style-type:disc">Excellent algorithmic problem-solving abilities</li>
+          </ul>
+          <ul id="6b7cf738-0e99-475a-a558-54dd1f3e6871" class="bulleted-list">
+            <li style="list-style-type:disc">Familiarity with robotics technologies related to sensing, state
+              estimation, tracking, path planning, and data fusion.</li>
+          </ul>
+          <ul id="08055686-8cc0-497d-a9f1-23c1b0151367" class="bulleted-list">
+            <li style="list-style-type:disc">Understanding and experience with unmanned systems technologies.</li>
+          </ul>
+          <h3 id="ddbe51d0-b8b0-414f-aa3c-6a66975d942b" class=""><strong>In return, we offer you:</strong></h3>
+          <ul id="38abde86-be2b-455b-bb5b-399ef61d80ee" class="bulleted-list">
+            <li style="list-style-type:disc">Fast-paced startup environment, where you will be constantly learning new
+              skills and acquiring new knowledge faster than anywhere else.</li>
+          </ul>
+          <ul id="188cebac-a13b-4100-afbe-31dea73628b5" class="bulleted-list">
+            <li style="list-style-type:disc">To be part of a small team of ambitious people aiming to build a more
+              resilient society and further accelerate human invention and creativity.</li>
+          </ul>
+          <ul id="5e690b65-09f3-43e8-8d9f-ffdf7fd8aa06" class="bulleted-list">
+            <li style="list-style-type:disc">Opportunity and provide with all necessary resources to develop and deploy
+              innovative AI-based software and hardware products for the industry that has a real-world impact.</li>
+          </ul>
+          <ul id="eed45ddb-c0f1-40e9-ae76-1df35038b7b7" class="bulleted-list">
+            <li style="list-style-type:disc">Competitive salary. It will be based on your skills, knowledge, and
+              experience.</li>
+          </ul>
+          <ul id="0db6efcc-ed9f-47e9-a8c8-b13908c022f8" class="bulleted-list">
+            <li style="list-style-type:disc">Trips to relevant conferences and events</li>
+          </ul>
+          <ul id="d49a6aa3-28cb-4df0-acde-66f7ccf3b82b" class="bulleted-list">
+            <li style="list-style-type:disc">Flexible working hours</li>
+          </ul>
+          <ul id="67f11f5a-88f5-449d-905f-2e4e9024d6ba" class="bulleted-list">
+            <li style="list-style-type:disc">The friendly, open-minded, fun, and collaborative environment of experts
+              where you can grow as a professional.</li>
+          </ul>
+          <ul id="a02e89ab-9d05-43f4-8413-256abd2eacfa" class="bulleted-list">
+            <li style="list-style-type:disc">Possibility of learning table tennis at an advanced level.</li>
+          </ul>
+          <ul id="299be77b-15d6-484a-9867-7912b78d28dd" class="bulleted-list">
+            <li style="list-style-type:disc">Possibility of learning UAV piloting and filming skills (for this, you will
+              need to build a good relationship with Ali and Zehra :)</li>
+          </ul>
+          <h3 id="5f67b0a1-1450-4393-a183-09a76a089977" class=""><strong>How to Apply</strong></h3>
+          <p id="2fc6b2ef-d7f3-4904-8e16-d0a3008706c0" class="">If you are the person we are looking for, fill in the
+            form and we will get back to you. See you soon :)</p>
+          <figure id="7e6fc134-87cf-4425-89e3-f64ae53aae10">
+            <div class="source"><a target="_blank"
+                href="https://forms.gle/Fdup8g49jM6VWG5E8">https://forms.gle/Fdup8g49jM6VWG5E8</a>
+            </div>
+          </figure>
+          <h2 id="91207aea-9e9a-4046-a90d-8eb2eb568fe6" class="">Application Process</h2>
+          <ol type="1" id="976e34d3-cb90-4b39-94b7-441a24de50cc" class="numbered-list" start="1">
+            <li>CV screening</li>
+          </ol>
+          <ol type="1" id="ca9e5cd9-7edd-480b-80c8-3ea4b39a178c" class="numbered-list" start="2">
+            <li>Scheduling an on-site interview to meet the team, have a coffee together, and delve into technical
+              conversation.</li>
+          </ol>
+          <ol type="1" id="0e6c3f8e-5b7d-4b06-8190-77b3ad225294" class="numbered-list" start="3">
+            <li>Hiring</li>
+          </ol>
+          <p id="68b8166c-48ad-4987-a6d4-f8ab066b8248" class="">
+          </p>
+          <p id="eb8f03bb-ccc7-4402-aa6b-211fc12579ba" class="">
+          </p>
+          <p id="7114782b-71b7-4c65-8527-dd7922e84f90" class="">
+          </p>
+        </div>
+      </article>
+    </div>
+
+  </section>
+</body>
+
+</html>
