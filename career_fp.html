@@ -16,13 +16,15 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
+  <link rel="stylesheet" type="text/css" href="./fullpage/fullpage.min.css" />
+
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
 
   <title>synapline.ai</title>
   <style>
     body {
-      background: #000;
+      background: #1c1c1c;
     }
 
     * {
@@ -189,14 +191,6 @@
     }
 
     @media screen and (max-width: 800px) {
-      body {
-        padding-top: 73px;
-      }
-
-      ._cover {
-        background-color: #000 !important;
-      }
-
       .wrapper {
         min-height: 100vh;
       }
@@ -206,9 +200,7 @@
       }
 
       .logo {
-        height: 28px !important;
-        margin-left: 20px;
-        margin-right: 20px;
+        height: 32px;
       }
 
       h1 {
@@ -277,30 +269,6 @@
         height: auto !important;
       }
 
-      .m1 {
-        font-size: 18px !important;
-      }
-
-      .m2 {
-        text-transform: none !important;
-        font-size: 18px !important;
-      }
-
-      h3 {
-        font-size: 28px !important;
-      }
-
-      .m3 {
-        padding: 80px 40px !important;
-      }
-
-      .m4 {
-        font-size: 28px !important;
-      }
-
-      .m5 {
-        padding-top: 60px !important;
-      }
     }
   </style>
 </head>
@@ -348,57 +316,43 @@
 
     <div id="fullpage">
 
-      <div class="section video-section" style="background-color: black; height: 100vh; position: relative;">
-        <div
-          style="position:absolute; top:0; left:0; width:100%;height:100%; display:flex; align-items:center; justify-content:center; z-index:2; background:rgba(0, 0, 0, .6);">
-          <!-- <div style="max-width: 1000px; font-size: 32px;">
-            <p>At synapline, we enhance the way humans and machines team up to help organizations drive better decisions
-              with more certainty in complex and dynamic environments</p>
-            <p>If you are passionate about building products that have a real impact, we want you at synapline.</p>
-          </div> -->
-        </div>
+      <div class="section video-section" style="background-color: black;">
         <div style="display: block; position: relative; width: 100%; height: 100%;">
-          <video id="video" autoplay muted loop
-            style="object-fit: cover; width: 100%; height: 100%; position: absolute; display: block;">
+          <video id="video" autoplay muted loop controls controlslist="nodownload nofullscreen noremoteplayback"
+            style="object-fit: cover; width: 100%; height: 100%; position: absolute;">
             <source src="./assets/team.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
       </div>
 
-      <div class="section" style="background-color: white; padding-top: 40px; padding-bottom: 40px; color: black;">
+      <div class="section" style="background-color: black;">
         <div class="responsive-col"
           style="max-width: 1000px; margin: 0 auto; display: flex; position: relative; width: 100%; height: auto; justify-content: center; align-items: flex-start;">
-          <div class="m1" style="flex: 1; padding: 40px; font-size: 32px; text-transform:uppercase;">
+          <div style="flex: 1; padding: 40px; font-size: 20px;">
             <p>At synapline, we enhance the way humans and machines team up to help organizations drive better decisions
               with more certainty in complex and dynamic environments</p>
             <br />
             <p>If you are passionate about building products that have a real impact, we want you at synapline.</p>
-
-            <a href="#positions"
-              style="display: inline-block; color: black; background: #FFBD2C; padding: 20px; text-transform:uppercase; margin-top: 40px; font-weight: bold; text-decoration: none;">View
-              Openings</a>
           </div>
-          <!-- <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+          <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
             <div style="max-width: 400px; height: auto; background: #ccc;">
               <img src="./assets/cover-5.jpg" style="display: block; width: 100%;" />
             </div>
             <a href="#positions"
               style="color: black; background: #FFBD2C; padding: 20px; text-transform:uppercase; margin-top: 20px; font-weight: bold; text-decoration: none;">View
               Openings</a>
-          </div> -->
+          </div>
         </div>
       </div>
 
-      <div class="section" style="background-color: black; height: 100vh; width: 100vw;">
+      <div class="section" style="background-color: black;">
 
         <div class="cover cover-4" style="height: 100%; width: 100%;">
-          <div class="m3"
+          <div
             style="max-width: 1000px; margin: 0 auto; padding: 20px; display: flex; flex-direction: column;  position: relative; width: 100%; height: 100%; justify-content: center; align-items: flex-start;">
-            <h3 style="color: #FFBD2C; margin-bottom: 20px; font-size: 72px; text-transform:uppercase;">Who we are</h3>
-            <p class="m2" style="max-width: 80%; text-align:left; font-size: 32px; text-transform:uppercase;">We are a
-              young and
-              diverse team of
+            <h3 style="color: #FFBD2C; margin-bottom: 20px; font-size: 36px;">Who we are</h3>
+            <p style="max-width: 50%; text-align:justify; font-size: 20px;">We are a young and diverse team of
               energizing problem
               solvers, thinkers and
               experts in product
@@ -409,7 +363,7 @@
 
       </div>
 
-      <div class="section" style="background-color: black; padding-top: 40px; padding-bottom: 40px;">
+      <div class="section" style="background-color: black;">
         <div class="slide">
           <div class="responsive-col"
             style="max-width: 1000px; margin: 0 auto; display: flex; flex-direction: row;  position: relative; width: 100%; height: 100%; justify-content: center; align-items: center;">
@@ -482,42 +436,51 @@
         </div>
       </div>
 
-      <div id="positions" class="section"
-        style="background-color: #fff; color: #000; padding-top: 80px; padding-bottom: 80px;" data-anchor="positions">
+      <div class="section" style="background-color: black;" data-anchor="positions">
         <div class="responsive-col"
           style="max-width: 1000px; margin: 0 auto; display: flex; flex-direction: row;  position: relative; width: 100%; height: auto; justify-content: center; align-items: flex-start;">
 
           <div style="padding: 20px; flex: 1;">
-            <h3 style="color: #000; margin-bottom: 20px;">Open positions</h3>
-            <p class="m4" style="text-transform:uppercase; font-size: 36px;">find a job that is alligned with your
-              superpowers and
+            <h3 style="color: #fff; margin-bottom: 20px;">Open positions</h3>
+            <p style="text-transform:uppercase; font-size: 36px;">find a job that is alligned with your superpowers and
               values</p>
           </div>
-          <div class="m5" style="padding: 20px; flex: 1;">
-            <h3 style="color: #000; margin-bottom: 20px;">Sofware engineering and AI</h3>
+          <div style="padding: 20px; flex: 1;">
+            <h3 style="color: #fff; margin-bottom: 20px;">Sofware engineering and AI</h3>
             <a href="./ai-se-job.html"
-              style="color: #000; text-transform:uppercase; font-size: 22px; transform: scale(1) !important; text-decoration: underline;">AI
+              style="color: #fff; text-transform:uppercase; font-size: 22px; transform: scale(1) !important; text-decoration: underline;">AI
               Software engineer:
               Computer Vision (FUll time)</a>
           </div>
         </div>
 
         <div class="responsive-col"
-          style="max-width: 1000px; margin: 0 auto; margin-top: 80px; display: flex; flex-direction: row;  position: relative; width: 100%; height: auto; justify-content: flex-start; align-items: flex-start;">
+          style="max-width: 1000px; margin: 0 auto; display: flex; flex-direction: row;  position: relative; width: 100%; height: auto; justify-content: flex-start; align-items: flex-start;">
 
-          <div style="padding: 20px; flex: 1; border-top: 1px solid #000; padding-top: 80px;">
-            <h3 style="color: #000; margin-bottom: 20px; font-size: 30px;">We are always looking for a new talent</h3>
+          <div style="padding: 20px; flex: 1; border-top: 1px solid #fff;">
+            <h3 style="color: #fff; margin-bottom: 20px; font-size: 30px;">We are always looking for a new talent</h3>
             <p style="text-transform:uppercase; font-size: 16px;">if you were not able to find the right position here,
               please send your spontaneour application to <a href="mailto:contact@synapline.ai"
                 style="color:#FFBD2C; transform: scale(1) !important;">contact@synapline.ai</a></p>
           </div>
         </div>
-
       </div>
-
 
     </div>
   </section>
+  <input type="hidden" id="_4" value="3" />
+
+  <script src="./fullpage/vendors/easings.min.js"></script>
+  <!-- <script src="https://secure.quantserve.com/quant.js" async="" type="text/javascript"></script> -->
+  <script type="text/javascript" src="./fullpage/fullpage.continuousHorizontal.limited.min.js"></script>
+  <script type="text/javascript" src="./fullpage/fullpage.responsiveSlides.limited.min.js"></script>
+  <!-- <script type="text/javascript" src="./fullpage/fullpage.scrollHorizontally.limited2.min.js"></script> -->
+  <script type="text/javascript" src="./fullpage/vendors/scrolloverflow.min.js"></script>
+  <!-- <script type="text/javascript" src="./fullpage/fullpage.js"></script> -->
+  <!-- <script type="text/javascript" src="./fullpage/_fullpage.extensions.min.js"></script> -->
+  <script type="text/javascript" src="./fullpage/fullpage.extensions.min.js"></script>
+
+  <script type="text/javascript" src="./base.js"></script>
 </body>
 
 </html>
