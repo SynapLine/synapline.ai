@@ -154,7 +154,19 @@
             margin: 40px;
         }
 
+        .mobile-only {
+            display: none !important;
+        }
+
         @media screen and (max-width: 800px) {
+            .desktop-only {
+                display: none !important;
+            }
+
+            .mobile-only {
+                display: block !important;
+            }
+
             .wrapper {
                 min-height: 100vh;
             }
@@ -205,13 +217,13 @@
                     <section class='flex social'
                         style='justify-content: center; align-items: center; margin-right: 40px;'>
 
-                        <!-- <a href="./career.html"
+                        <a class="desktop-only" href="./career.html"
                             style="color: white; margin-right: 40px; position: relative; display: block; border: 1px solid #fff; padding: 10px; text-decoration: none; border-radius: 10px;">We
                             Are
                             Hiring
                             <span
                                 style="position: absolute; top: -10px; right: -10px; width: 20px; height: 20px; background: red; border-radius: 10px;"></span>
-                        </a> -->
+                        </a>
 
                         <a href='https://www.linkedin.com/company/synapline' target='_blank'
                             style='margin-right: 16px; display: block;'>
@@ -223,12 +235,21 @@
                         </a>
                     </section>
                 </section>
-                <section class='flex container' style='flex: 1; justify-content: center; align-items: center;'>
+                <section class='flex container'
+                    style='flex: 1; justify-content: center; align-items: center; flex-direction: column;'>
                     <h1 style='color: #fff; font-size: 35px; text-align: center; padding: 40px;'>
                         We combine human and artificial intelligence to help organizations <br />
                         <span>drive better decisions with more
                             certainty</span>
                     </h1>
+
+                    <a class="mobile-only" href="./career.html"
+                        style="font-size: 32px; color: white; margin-bottom: 40px; position: relative; display: block; border: 1px solid #fff; padding: 10px; text-decoration: none; border-radius: 10px;">We
+                        Are
+                        Hiring
+                        <span
+                            style="position: absolute; top: -10px; right: -10px; width: 20px; height: 20px; background: red; border-radius: 10px;"></span>
+                    </a>
                 </section>
             </section>
         </section>
