@@ -18,12 +18,8 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
-    <title>synapline.ai</title>
+    <title>synapline.ai — Under Construction</title>
     <style>
-        body {
-            background: #1c1c1c;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -35,118 +31,16 @@
             line-height: 130%;
         }
 
+        body {
+            background: #1c1c1c;
+        }
+
         .wrapper {
             display: flex;
             flex-direction: column;
             width: 100vw;
-            height: 100vh;
+            min-height: 100vh;
             background-color: #1c1c1c;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .text {
-            text-transform: uppercase;
-        }
-
-        .text.light {
-            color: #fff;
-        }
-
-        .flex {
-            display: flex;
-        }
-
-        .center {
-            justify-content: center;
-            align-items: center;
-        }
-
-        .full {
-            flex: 1;
-        }
-
-        .cover {
-            position: relative;
-            z-index: 2;
-        }
-
-        .cover::after {
-            content: '';
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            z-index: -1;
-            opacity: .7;
-        }
-
-        .cover-2::after,
-        .cover-3::after {
-            opacity: .5;
-        }
-
-        .cover-1::after {
-            background-image: url(./assets/cover-1.jpg);
-        }
-
-        .cover-2::after {
-            background-image: url(./assets/cover-2.jpg);
-            background-position: 0 20%;
-        }
-
-        .cover-3::after {
-            background-image: url(./assets/cover-3.jpg);
-        }
-
-        a,
-        img,
-        .overlay {
-            transition: all ease .3s;
-        }
-
-        a:hover,
-        .player:hover img {
-            transform: scale(1.1);
-        }
-
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 9999;
-            background: rgba(0, 0, 0, .8);
-            transition: all ease .3s;
-            opacity: 0;
-            display: none;
-        }
-
-        .overlay.show {
-            display: block;
-            opacity: 1;
-        }
-
-        .close {
-            position: absolute;
-            z-index: 99999;
-            top: -28px;
-            right: -28px;
-            width: 56px;
-        }
-
-        .close img {
-            display: block;
-            width: 100%;
         }
 
         .logo {
@@ -154,55 +48,78 @@
             margin: 40px;
         }
 
-        .mobile-only {
-            display: none !important;
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .subtext {
+            color: #FFBD2C;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .contacts {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 48px;
+        }
+
+        .contacts a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: #fff;
+            margin: 0 20px;
+            transition: transform ease .3s;
+        }
+
+        .contacts a:hover {
+            transform: scale(1.05);
+        }
+
+        .contacts img {
+            margin-right: 6px;
+        }
+
+        footer {
+            text-align: center;
+            color: #7a7a7a;
+            font-size: 13px;
+            padding: 24px;
         }
 
         @media screen and (max-width: 800px) {
-            .desktop-only {
-                display: none !important;
-            }
-
-            .mobile-only {
-                display: block !important;
-            }
-
-            .wrapper {
-                min-height: 100vh;
-            }
-
-            .social img {
-                height: 32px;
-            }
-
             .logo {
                 height: 32px;
             }
 
             h1 {
-                font-size: 24px !important;
-            }
-
-            .footer {
-                flex-direction: column-reverse;
-            }
-
-            .footer>section:last-child {
-                padding: 25% 0;
-                margin-bottom: 10px;
-            }
-
-            .video-container {
-                margin: 40px !important;
+                font-size: 28px;
             }
 
             .contacts {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center;
             }
 
-            .contacts>* {
-                margin-bottom: 10px;
+            .contacts a {
+                margin: 8px 0;
             }
         }
     </style>
@@ -210,129 +127,27 @@
 
 <body>
     <section class='wrapper'>
-        <section class='cover cover-1' style='flex: 1.5; background-color: #1c1c1c;'>
-            <section class='' style='height: 100%; display: flex; flex-direction: column; width: 100%;'>
-                <section class='flex' style='justify-content: space-between; align-items: center;'>
-                    <img src='./assets/logo.svg' class='logo' />
-                    <section class='flex social'
-                        style='justify-content: center; align-items: center; margin-right: 40px;'>
+        <img src='./assets/logo.svg' class='logo' alt='Synapline' />
 
-                        <a class="desktop-only" href="./career.html"
-                            style="color: white; margin-right: 40px; position: relative; display: block; border: 1px solid #fff; padding: 10px; text-decoration: none; border-radius: 10px;">We
-                            Are
-                            Hiring
-                            <span
-                                style="position: absolute; top: -10px; right: -10px; width: 20px; height: 20px; background: red; border-radius: 10px;"></span>
-                        </a>
+        <section class='main'>
+            <h1>Under Construction</h1>
+            <p class='subtext'>Our complete website is coming soon. Stay tuned.</p>
 
-                        <a href='https://www.linkedin.com/company/synapline' target='_blank'
-                            style='margin-right: 16px; display: block;'>
-                            <img src='./assets/in.svg' alt='' />
-                        </a>
-                        <a href='https://www.youtube.com/channel/UCTbTJsCoeW68ejIdGQL0xtg' target='_blank'
-                            style='display: block;'>
-                            <img src='./assets/yt.svg' alt='' />
-                        </a>
-                    </section>
-                </section>
-                <section class='flex container'
-                    style='flex: 1; justify-content: center; align-items: center; flex-direction: column;'>
-                    <h1 style='color: #fff; font-size: 35px; text-align: center; padding: 40px;'>
-                        We combine human and artificial intelligence to help organizations <br />
-                        <span>drive better decisions with more
-                            certainty</span>
-                    </h1>
-
-                    <a class="mobile-only" href="./career.html"
-                        style="font-size: 32px; color: white; margin-bottom: 40px; position: relative; display: block; border: 1px solid #fff; padding: 10px; text-decoration: none; border-radius: 10px;">We
-                        Are
-                        Hiring
-                        <span
-                            style="position: absolute; top: -10px; right: -10px; width: 20px; height: 20px; background: red; border-radius: 10px;"></span>
-                    </a>
-                </section>
-            </section>
-        </section>
-        <section class='container text light'>
-            <p style='font-size: 18px; line-height: 30px; text-align: center; padding: 20px 40px;'>Synapline is building
-                <span style='color: #FFBD2C;'>AI
-                    powered hardware and
-                    software solutions</span> for autonomous unmanned operations
-            </p>
-        </section>
-        <section style='flex: 1'>
-            <section class='footer' style='display: flex; height: 100%;'>
-                <section style='padding: 40px; flex: 1; justify-content:flex-end; flex-direction:column;'
-                    class='flex cover cover-2'>
-                    <p style='font-size: 20px; color: #FFBD2C; font-weight: 700;'>Our complete website is coming soon.
-                        <br />Stay Tuned
-                    </p>
-                    <section class='flex contacts' style='margin-top: 40px;'>
-                        <a href='mailto:contact@synapline.ai' class='flex center'
-                            style='text-decoration:none; color: #fff; margin-right: 20px;'>
-                            <img src='./assets/envelope.svg' alt='' style='margin-right: 6px;' />
-                            <span>contact@synapline.ai</span>
-                        </a>
-
-                        <!-- <a href='#' class='flex center' style='text-decoration:none; color: #fff; margin-right: 20px;'>
-                            <img src='./assets/address.svg' alt='' style='margin-right: 6px;' />
-                            <span>contact@synapline.ai</span>
-                        </a> -->
-
-                        <a href='tel:994502351098' class='flex center'
-                            style='text-decoration:none; color: #fff; margin-right: 20px;'>
-                            <img src='./assets/phone.svg' alt='' style='margin-right: 6px;' />
-                            <span>+994 50 235 10 98</span>
-                        </a>
-
-                    </section>
-                </section>
-                <section style='flex: 1; cursor: pointer;' class='flex center cover cover-3 player'
-                    onclick="document.getElementById('player').classList.add('show')">
-                    <img src='./assets/play.svg' alt='' />
-                </section>
-            </section>
-        </section>
-        <section class='overlay' id='player'>
-            <section class='video-container'
-                style='position: relative; max-width: 800px; margin: auto; top: 50%; transform: translateY(-50%); background: #000;'>
-                <a href='#' alt='' class='close'
-                    onclick="document.getElementById('player').classList.remove('show'); stopVideo(document)">
-                    <img src='./assets/close.svg' alt='' />
+            <section class='contacts'>
+                <a href='tel:994502351098'>
+                    <img src='./assets/phone.svg' alt='' />
+                    <span>+994 50 235 10 98</span>
                 </a>
-                <section style='width: 100%; padding-bottom: 56.25%;'>
-                    <iframe src="https://www.youtube.com/embed/y6fUKYsT-cs"
-                        title="Synap ISR: AI-powered Integrated Unmanned Solution for Autonomous ISR missions by Synapline"
-                        frameborder="10"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen style='position: absolute; top: 0; left: 0; width: 100%; height: 100%;'
-                        class='video'></iframe>
-                </section>
+
+                <a href='mailto:contact@synapline.ai'>
+                    <img src='./assets/envelope.svg' alt='' />
+                    <span>contact@synapline.ai</span>
+                </a>
             </section>
         </section>
-    </section>
-    <script type="text/javascript">
-        console.log('synapline.ai')
-        document.addEventListener('keydown', logKey);
-        const stopVideo = function (element) {
-            var iframe = element.querySelector('iframe');
-            var video = element.querySelector('video');
-            if (iframe) {
-                var iframeSrc = iframe.src;
-                iframe.src = iframeSrc;
-            }
-            if (video) {
-                video.pause();
-            }
-        };
 
-        function logKey(e) {
-            if (e.code === 'Escape') {
-                document.getElementById('player').classList.remove('show')
-                stopVideo(document)
-            }
-        }
-    </script>
+        <footer>&copy; Synapline. All rights reserved.</footer>
+    </section>
 </body>
 
 </html>
