@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>synapline.ai — Under Construction</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+            font-family: 'Exo', sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            line-height: 130%;
+        }
+
+        body {
+            background: #1c1c1c;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 100vw;
+            min-height: 100vh;
+            background-color: #1c1c1c;
+        }
+
+        .logo {
+            height: 64px;
+            margin: 40px;
+        }
+
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .subtext {
+            color: #FFBD2C;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .contacts {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 48px;
+        }
+
+        .contacts a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: #fff;
+            margin: 0 20px;
+            transition: transform ease .3s;
+        }
+
+        .contacts a:hover {
+            transform: scale(1.05);
+        }
+
+        .contacts img {
+            margin-right: 6px;
+        }
+
+        footer {
+            text-align: center;
+            color: #7a7a7a;
+            font-size: 13px;
+            padding: 24px;
+        }
+
+        @media screen and (max-width: 800px) {
+            .logo {
+                height: 32px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .contacts {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contacts a {
+                margin: 8px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class='wrapper'>
+        <img src='./assets/logo.svg' class='logo' alt='Synapline' />
+
+        <section class='main'>
+            <h1>Under Construction</h1>
+            <p class='subtext'>Our complete website is coming soon. Stay tuned.</p>
+
+            <section class='contacts'>
+                <a href='tel:994502351098'>
+                    <img src='./assets/phone.svg' alt='' />
+                    <span>+994 50 235 10 98</span>
+                </a>
+
+                <a href='mailto:contact@synapline.ai'>
+                    <img src='./assets/envelope.svg' alt='' />
+                    <span>contact@synapline.ai</span>
+                </a>
+            </section>
+        </section>
+
+        <footer>&copy; Synapline. All rights reserved.</footer>
+    </section>
+</body>
+
+</html>
