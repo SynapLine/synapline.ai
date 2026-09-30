@@ -391,3 +391,81 @@ figcaption { margin-top: 12px; font-size: 0.8125rem; color: var(--dim); }
 
 .interop { display: grid; grid-template-columns: auto 1fr; gap: 32px; align-items: center; }
 @media (max-width: 720px) { .interop { grid-template-columns: 1fr; gap: 20px; } }
+
+/* ---------- Promo video ---------- */
+.video-card { position: relative; display: block; aspect-ratio: 16 / 9; border: 1px solid var(--line); border-radius: var(--radius); background: #000; cursor: pointer; }
+.video-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.82; transition: opacity 0.3s, transform 0.8s var(--ease); }
+.video-card:hover img, .video-card:focus-visible img { opacity: 1; }
+.video-shade { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(6, 8, 11, 0.85) 0%, rgba(6, 8, 11, 0) 40%); }
+.video-play {
+  position: absolute; left: 50%; top: 50%; width: clamp(64px, 8vw, 92px); aspect-ratio: 1; transform: translate(-50%, -50%);
+  display: grid; place-items: center; border-radius: 50%; background: var(--accent);
+  box-shadow: 0 0 0 10px rgba(255, 188, 43, 0.18); transition: transform 0.25s var(--ease), box-shadow 0.25s;
+}
+.video-card:hover .video-play { transform: translate(-50%, -50%) scale(1.06); box-shadow: 0 0 0 14px rgba(255, 188, 43, 0.22); }
+.video-play svg { width: 34%; margin-left: 6%; fill: #14100a; }
+.video-meta { position: absolute; left: 0; right: 0; bottom: 0; display: flex; justify-content: space-between; padding: clamp(14px, 2vw, 24px) clamp(16px, 2.4vw, 28px); font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; }
+
+.video-dialog { width: min(1280px, 92vw); max-width: none; max-height: none; padding: 0; border: 0; background: transparent; overflow: visible; }
+.video-dialog::backdrop { background: rgba(4, 6, 9, 0.94); }
+.video-dialog video { display: block; width: 100%; max-height: 82vh; aspect-ratio: 16 / 9; background: #000; }
+.video-close { position: absolute; right: 0; bottom: calc(100% + 10px); width: 44px; height: 44px; display: grid; place-items: center; background: none; border: 1px solid var(--line-2); border-radius: 50%; color: #fff; cursor: pointer; transition: border-color 0.2s, color 0.2s; }
+.video-close:hover { border-color: var(--accent); color: var(--accent); }
+.video-close svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+@media (max-width: 640px) { .video-dialog { width: 100vw; } .video-close { right: 12px; } }
+
+/* ---------- Careers ---------- */
+.job-list { display: grid; gap: 12px; }
+.job-row {
+  display: grid; grid-template-columns: 1fr auto; gap: 6px 24px; align-items: center;
+  padding: 26px 28px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  transition: border-color 0.2s;
+}
+.job-row:hover { border-color: rgba(255, 188, 43, 0.5); }
+.job-dept { grid-column: 1; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.job-title { grid-column: 1; font-size: clamp(1.15rem, 1.8vw, 1.4rem); font-weight: 700; letter-spacing: -0.01em; color: #fff; }
+.job-meta { grid-column: 1; font-size: 0.9375rem; color: var(--muted); }
+.job-go { grid-column: 2; grid-row: 1 / span 3; font-size: 0.875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); white-space: nowrap; }
+.job-go .arr { display: inline-block; transition: transform 0.2s var(--ease); }
+.job-row:hover .job-go .arr { transform: translateX(3px); }
+@media (max-width: 640px) { .job-row { grid-template-columns: 1fr; } .job-go { grid-column: 1; grid-row: auto; margin-top: 10px; } }
+
+.spontaneous { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; margin-top: 32px; border-style: dashed; }
+.spontaneous h3 { margin-bottom: 6px; }
+.spontaneous a:not(.btn) { color: var(--accent); }
+
+.team-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 28px 20px; }
+@media (max-width: 1020px) { .team-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 14px; } }
+.person { margin: 0; display: block; }
+.person-photo { position: relative; aspect-ratio: 1; overflow: hidden; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+.person-photo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); transition: filter 0.4s, transform 0.6s var(--ease); }
+.person:hover .person-photo img { filter: none; transform: scale(1.03); }
+.person figcaption, .person-caption { display: block; margin-top: 14px; }
+.person strong { display: block; color: #fff; font-size: 1rem; }
+.person figcaption span, .person-caption span { display: block; margin-top: 2px; font-size: 0.8125rem; color: var(--muted); line-height: 1.4; }
+.person--you .person-photo { display: grid; place-items: center; border: 1px dashed rgba(255, 188, 43, 0.6); background: var(--accent-soft); transition: background 0.2s; }
+.person--you .person-photo span { font-size: clamp(1.1rem, 2vw, 1.5rem); font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; text-align: center; color: var(--accent); line-height: 1.2; }
+.person--you:hover .person-photo { background: rgba(255, 188, 43, 0.2); }
+
+.job-layout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: clamp(32px, 5vw, 72px); align-items: start; }
+.job-aside { position: sticky; top: calc(var(--header-h) + 24px); }
+.job-aside .specs { margin: 8px 0 24px; }
+.job-apply { width: 100%; justify-content: center; }
+.job-aside .note { margin: 14px 0 0; }
+.job-aside .note a, .job-section a { color: var(--accent); }
+.job-section { padding: 36px 0; border-top: 1px solid var(--line); }
+.job-section:first-child { border-top: 0; padding-top: 0; }
+.job-section h2 { font-size: clamp(1.3rem, 2vw, 1.6rem); margin-bottom: 18px; }
+.job-section p { color: var(--muted); max-width: 70ch; }
+.job-section .features li { max-width: 70ch; }
+.sub-list { margin-top: 10px; display: grid; gap: 6px; }
+.sub-list li { position: relative; padding-left: 18px; }
+.sub-list li::before { content: ""; position: absolute; left: 0; top: 0.75em; width: 8px; height: 1px; background: var(--accent); }
+.job-section .steps { border-top: 0; }
+.job-section .steps li { padding-top: 8px; }
+@media (max-width: 900px) {
+  .job-layout { grid-template-columns: 1fr; }
+  .job-aside { position: static; order: -1; }
+}
+.btn--email { text-transform: none; letter-spacing: 0.01em; font-size: 0.9375rem; }

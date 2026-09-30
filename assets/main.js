@@ -22,6 +22,23 @@
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") setOpen(false); });
   window.matchMedia("(min-width: 1021px)").addEventListener("change", (e) => { if (e.matches) setOpen(false); });
 
+  // Video cards: each opens its own modal player; nothing is downloaded until the visitor clicks play.
+  const small = window.matchMedia("(max-width: 900px)").matches || navigator.connection?.saveData;
+  document.querySelectorAll("[data-video]").forEach((trigger) => {
+    const dialog = document.getElementById(trigger.dataset.video);
+    if (!dialog || typeof dialog.showModal !== "function") return; // falls back to opening the file
+    const video = dialog.querySelector("video");
+    trigger.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (!video.getAttribute("src")) video.src = small ? video.dataset.srcSd : video.dataset.srcHd;
+      dialog.showModal();
+      video.play().catch(() => {});
+    });
+    dialog.querySelector(".video-close").addEventListener("click", () => dialog.close());
+    dialog.addEventListener("click", (e) => { if (e.target === dialog) dialog.close(); }); // backdrop
+    dialog.addEventListener("close", () => video.pause());
+  });
+
   // Reveal on scroll.
   const items = document.querySelectorAll(".reveal");
   if (!("IntersectionObserver" in window)) {
